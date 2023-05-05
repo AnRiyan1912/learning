@@ -1,39 +1,33 @@
-// const { getUser, getWeather } = require('./information');
+// test('Penjelasan perintah', () => {
+//     expect(perintah.matcher(nilai yang di ekspetasikan))
+// }) 
 
-// function getUserWeather(userId, callback) {
-//   getUser(userId, (error, user) => {
-//     if (error) {
-//       callback(error, null);
-//     }
+// test('dua tambah dua adalah empat', () => {
+//     expect(2 + 2).toBe(4)
+// })
 
-//     getWeather(user.location, (error, weather) => {
-//       if (error) {
-//         callback(error, null);
-//       }
-//       callback(null, { ...user, ...weather });
-//     });
-//   });
-// }
 
-// getUserWeather(1, (error, userWeather) => {
-//   if (error) {
-//     console.log(error);
-//   }
-//   console.log(userWeather);
-// });
+// test('lima dikali lima adalah 25', () => {
+//     expect(5 * 5).tobe(25)
+// })
+// const jest = require('jest')
 
-const { getUser, getWeather } = require('./information');
+// jest.test('Pengujian olah aritmatika', () => {
+//     test('empat tambah empat adalah delapan', () => {
+//         expect(4 + 4).toBe(1)
+//     })
 
-function getUserWeather(userId) {
-  let user;
+//     test('dua dikali dua adalah empat',() => {
+//         expect(2 * 2).toBe(2)
+//     })
+// })
 
-  return getUser(userId)
-    .then((_user) => {
-      user = _user;
-      return getWeather(user.location);
-    })
+function sum  (a, b) {
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        throw new Error('inputs must be number');
+    }
 
-    .then((weather) => ({ ...user, ...weather }));
+    return a + b;
 }
 
-getUserWeather(1).then(console.log).catch(console.log);
+module.exports = sum;
